@@ -1,0 +1,51 @@
+{
+  "name": "mongo-news-scraper",
+  "description": "A web scraper using Mongo DB, Node, Express, Handlebars",
+  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenRGarcia/news-scraper.git"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "DEBUG=mongo-news-scraper:* npm start",
+    "watch": "nodemon ./bin/www",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "^4.0.1",
+    "http-errors": "~1.6.2",
+    "jquery": "^3.3.1",
+    "material-design-icons": "^3.0.1",
+    "mongoose": "^5.1.1",
+    "morgan": "~1.9.0",
+    "node-sass-middleware": "0.11.0",
+    "popper.js": "^1.14.3",
+    "request": "^2.86.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/BenRGarcia/news-scraper/issues"
+  },
+  "homepage": "https://github.com/BenRGarcia/news-scraper#readme",
+  "main": "./bin/www",
+  "author": "ben@seebenprogram.com"
+}

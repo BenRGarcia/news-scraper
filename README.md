@@ -8,5 +8,7 @@
 
 * Node, Express
 * MongoDB, Mongoose
-* Cheerio
+* Cheerio, Request
 * Handlebars
+* Mocha, Chai, Chai-http
+* ESLint
