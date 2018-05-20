@@ -1,8 +1,12 @@
 var express = require('express')
 var router = express.Router()
-var db = require('../models')
 var scrape = require('./utils/scrape.js')
 var normalize = require('./utils/normalize.js')
+var db = require('./utils/query')
+var saveArticle = db.saveArticle
+var deleteArticle = db.deleteArticle
+var addComment = db.addComment
+var deleteComment = db.deleteComment
 
 /**
  * PATH '/api/scraper'
