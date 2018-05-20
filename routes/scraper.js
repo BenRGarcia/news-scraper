@@ -16,21 +16,25 @@ router.route('/scrape')
   })
 
 // Save or delete articles
-router.route('/article/:_id')
+router.route('/article/save')
   // Add article to 'savedArticle' collection
   .post((req, res, next) => {
     // ...
   })
+
+router.route('/article/:id')
   // Delete article from 'savedArticle' collection
   .delete((req, res, next) => {
     // ...
   })
 
-router.route('/article/:_id/comment')
+router.route('/article/:id/comment')
   // Add comment to article
   .post((req, res, next) => {
     // ...
   })
+
+router.route('/article/:id/comment/:commentId')
   // Delete comment from article
   .delete((req, res, next) => {
     // ...
