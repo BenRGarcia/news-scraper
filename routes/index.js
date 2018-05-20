@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var db = require('../models')
+var getSavedArticles = require('./utils/query').getSavedArticles
 
 /**
  * PATH '/'
