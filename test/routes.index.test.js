@@ -25,3 +25,14 @@ describe('`index.js` routes, path `/saved`', function () {
       })
   })
 })
+
+describe('`index.js` routes, path `nonexistent`', function () {
+  it('should return server status code `404`', function (done) {
+    chai.request('http://localhost:8080')
+      .get('/nonexistent')
+      .end(function (err, res) {
+        expect(res).to.have.status(404)
+        done()
+      })
+  })
+})
