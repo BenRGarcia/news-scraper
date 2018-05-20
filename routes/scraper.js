@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var mongoose = require('mongoose')
 var cheerio = require('cheerio')
+var db = require('./models')
 
 /**
  * PATH '/api/scraper'
