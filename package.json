@@ -12,7 +12,8 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=mongo-news-scraper:* npm run watch",
     "watch": "nodemon ./bin/www",
-    "test": "mocha"
+    "test": "mocha",
+    "test-watch": "mocha --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
