@@ -15,7 +15,7 @@ router.route('/scrape')
     // ...
   })
 
-// Save or delete articles
+// Save articles
 router.route('/article/save')
   // Add article to 'savedArticle' collection
   .post((req, res, next) => {
