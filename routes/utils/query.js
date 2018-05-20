@@ -25,11 +25,9 @@ async function addComment ({ text, _id }) {
     .catch(err => err)
 }
 
-// Delete comment document from `Comment` collection and
-// updates article.comments document, removing comment ObjectId
 async function deleteComment ({ _idComment, _idArticle }) {
   await db.Comment.findOneAndRemove({ _idComment })
-    .then(() => db.Article.update({/* _idArticle: { $pull: { Article.comments: _idComment } } */}))
+    .then(() => db.Article.update({ _idArticle }, { $pull: { comments: _idComment } }))
     .catch(err => err)
 }
 
