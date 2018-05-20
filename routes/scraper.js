@@ -1,8 +1,8 @@
 var express = require('express')
 var router = express.Router()
-var cheerio = require('cheerio')
 var db = require('../models')
 var scrape = require('./utils/scrape.js')
+var normalize = require('./utils/normalize.js')
 
 /**
  * PATH '/api/scraper'
@@ -10,7 +10,7 @@ var scrape = require('./utils/scrape.js')
 
 //  Scrape new articles
 router.route('/scrape')
-  // Remove all staged articles, scrape website, render new articles scraped
+  // Scrape news website, render articles scraped
   .get((req, res, next) => {
     // ...
   })
