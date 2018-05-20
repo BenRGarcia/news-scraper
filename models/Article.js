@@ -9,6 +9,12 @@ var ArticleSchema = new Schema({
     trim: true,
     unique: true
   },
+  preview: {
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
+  },
   link: {
     type: String,
     required: true,
