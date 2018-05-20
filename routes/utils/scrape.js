@@ -1,12 +1,9 @@
-const request = require('request')
+const axios = require('axios')
 
 module.exports = url => {
   try {
     return new Promise((resolve, reject) => {
-      request(url, (err, res, html) => {
-        if (err) reject(err)
-        resolve(html)
-      })
+      axios(/* ... */)
     })
   } catch (err) {
     console.error(err)
