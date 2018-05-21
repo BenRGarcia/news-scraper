@@ -1,21 +1,22 @@
-/* eslint-disable no-unused-expressions */
-var scraperRouter = require('../routes/scraper.js')
-var Article = require('../models').Article
-var Comment = require('../models').Comment
-var expect = require('chai').expect
-var sinon = require('sinon')
+/* eslint-disable no-unused-expressions, handle-callback-err */
+// var scraperRouter = require('../routes/scraper.js')
+// var Article = require('../models').Article
+// var Comment = require('../models').Comment
+var chai = require('chai')
+var expect = chai.expect
+var chaiHttp = require('chai-http')
+chai.use(chaiHttp)
 
 describe('Routes: `scraper.js` path `/scrape` `GET`', function () {
-  it('should return array of objects', function () {
-
-  })
-
-  it('should have props `title`, `preview` and `link` in array objects', function () {
-
-  })
-
-  it('should return server status code `200`', function () {
-
+  it('should return JSON array with server status code `200`', function (done) {
+    chai.request('localhost:8080')
+      .get('/api/scraper/scrape')
+      .end(function (err, res) {
+        expect(res).to.have.status(200)
+        expect(res).to.be.json
+        expect(res.body).to.be.an('array')
+        done()
+      })
   })
 })
 
