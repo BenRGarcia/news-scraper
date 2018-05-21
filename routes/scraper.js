@@ -13,9 +13,8 @@ var deleteComment = db.deleteComment
  * PATH '/api/scraper'
  */
 
-//  Scrape new articles
 router.route('/scrape')
-  // Scrape news website, render articles scraped
+  // Return array of scraped articles
   .get((req, res, next) => {
     scrape('https://sdtimes.com/')
       .then(resp => normalize(resp.data))
@@ -23,7 +22,6 @@ router.route('/scrape')
       .catch(err => res.json(err))
   })
 
-// Save articles
 router.route('/article/save')
   // Add article to 'savedArticle' collection
   .post((req, res, next) => {
