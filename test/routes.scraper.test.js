@@ -1,7 +1,4 @@
 /* eslint-disable no-unused-expressions, handle-callback-err */
-// var scraperRouter = require('../routes/scraper.js')
-// var Article = require('../models').Article
-// var Comment = require('../models').Comment
 var chai = require('chai')
 var expect = chai.expect
 var chaiHttp = require('chai-http')
