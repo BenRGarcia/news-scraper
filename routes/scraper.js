@@ -3,6 +3,7 @@ var router = express.Router()
 var scrape = require('./utils/scrape.js')
 var normalize = require('./utils/normalize.js')
 var db = require('./utils/query')
+var scrape = require('./utils/scrape.js')
 var saveArticle = db.saveArticle
 var deleteArticle = db.deleteArticle
 var addComment = db.addComment
@@ -16,7 +17,10 @@ var deleteComment = db.deleteComment
 router.route('/scrape')
   // Scrape news website, render articles scraped
   .get((req, res, next) => {
-    // ...
+    scrape('https://sdtimes.com/')
+      .then(resp => normalize(resp.data))
+      .then(articles => res.json(articles))
+      .catch(err => res.json(err))
   })
 
 // Save articles
