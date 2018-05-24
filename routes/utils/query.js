@@ -2,8 +2,15 @@ var db = require('../../models')
 
 async function getSavedArticles () {
   return db.Article.find({})
-    .populate('comments')
     .then(articles => articles)
+    .catch(err => err)
+}
+
+async function getArticleComments ({ _id }) {
+  console.log(`mongo is looking for _id: ${_id}`)
+  return db.Article.findOne({ _id })
+    .populate('comments')
+    .then(article => article)
     .catch(err => err)
 }
 
@@ -33,6 +40,7 @@ async function deleteComment ({ _idComment, _idArticle }) {
 
 module.exports = {
   getSavedArticles,
+  getArticleComments,
   saveArticle,
   deleteArticle,
   addComment,
