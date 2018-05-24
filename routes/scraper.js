@@ -25,7 +25,9 @@ router.route('/scrape')
 router.route('/article/save')
   // Add article to 'savedArticle' collection
   .post((req, res, next) => {
-    // ...
+    saveArticle(req.body)
+      .then(savedArticle => res.status(201).send())
+      .catch(err => console.error(err))
   })
 
 router.route('/article/:id')
