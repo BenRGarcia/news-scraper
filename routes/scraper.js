@@ -5,6 +5,7 @@ var normalize = require('./utils/normalize.js')
 var db = require('./utils/query')
 var scrape = require('./utils/scrape.js')
 var saveArticle = db.saveArticle
+var getArticleComments = db.getArticleComments
 var deleteArticle = db.deleteArticle
 var addComment = db.addComment
 var deleteComment = db.deleteComment
@@ -27,7 +28,7 @@ router.route('/article/save')
   .post((req, res, next) => {
     saveArticle(req.body)
       .then(savedArticle => res.status(201).send())
-      .catch(err => console.error(err))
+      .catch(err => next(err))
   })
 
 router.route('/article/:id')
@@ -36,7 +37,13 @@ router.route('/article/:id')
     // ...
   })
 
-router.route('/article/:id/comment')
+router.route('/article/:_id/comments')
+  // Retrieve article comments
+  .get((req, res, next) => {
+    getArticleComments({ _id: req.params._id })
+      .then(article => res.json(article.comments))
+      .catch(err => next(err))
+  })
   // Add comment to article
   .post((req, res, next) => {
     // ...
