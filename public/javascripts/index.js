@@ -17,7 +17,10 @@ $(function () {
     return formattedArticles
   }
 
-  const renderArticles = articles => $('#js-append-articles-scraped').append(articles)
+  const renderArticles = articles => {
+    $('#js-append-articles-scraped').empty()
+    $('#js-append-articles-scraped').append(articles)
+  }
 
   $('body').on('click', '#js-scrape-articles', () => {
     scrapeArticles()
