@@ -43,7 +43,10 @@ router.route('/article/:_id/comments')
   })
   // Add comment to article
   .post((req, res, next) => {
-    // ...
+    console.log(`comment post request received at server`)
+    db.addComment({ _id: req.params._id, text: req.body.text })
+      .then(() => res.status(201).send())
+      .catch(err => next(err))
   })
 
 router.route('/article/:id/comment/:commentId')
