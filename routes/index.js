@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-var getSavedArticles = require('./utils/query').getSavedArticles
+const express = require('express')
+const router = express.Router()
+const getSavedArticles = require('./utils/query').getSavedArticles
 
 /**
  * PATH '/'
