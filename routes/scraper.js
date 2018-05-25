@@ -31,10 +31,12 @@ router.route('/article/save')
       .catch(err => next(err))
   })
 
-router.route('/article/:id')
+router.route('/article/:_id')
   // Delete article from 'savedArticle' collection
   .delete((req, res, next) => {
-    // ...
+    deleteArticle({ _id: req.params._id })
+      .then(() => res.status(204).send())
+      .catch(err => next(err))
   })
 
 router.route('/article/:_id/comments')
