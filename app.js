@@ -1,20 +1,20 @@
 // Dependencies
-var createError = require('http-errors')
-var errorHandler = require('./core/errorHandler.js')
-var express = require('express')
-var path = require('path')
-var logger = require('morgan')
-var sassMiddleware = require('node-sass-middleware')
-var hbs = require('hbs')
-var favicon = require('serve-favicon')
-var sassConfig = require('./config/sassConfig.js')
+const createError = require('http-errors')
+const errorHandler = require('./core/errorHandler.js')
+const express = require('express')
+const path = require('path')
+const logger = require('morgan')
+const sassMiddleware = require('node-sass-middleware')
+const hbs = require('hbs')
+const favicon = require('serve-favicon')
+const sassConfig = require('./config/sassConfig.js')
 
 // Routers
-var indexRouter = require('./routes/index')
-var apiRouter = require('./routes/scraper')
+const indexRouter = require('./routes/index')
+const apiRouter = require('./routes/scraper')
 
 // Instantiate app
-var app = express()
+const app = express()
 
 // App config
 app.set('views', path.join(__dirname, 'views'))
