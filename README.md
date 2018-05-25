@@ -2,7 +2,7 @@
 
 > A web scraper of [SD Times](https://sdtimes.com/) where users can view headlines and leave comments
 
-**Click [here]() to view the deployed site on Heroku**
+**Click [here](https://young-shore-59428.herokuapp.com/) to view the deployed site on Heroku**
 
 ## Tools
 
