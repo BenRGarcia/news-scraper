@@ -7,10 +7,30 @@ $(function () {
   const toHTML = articles => {
     const formattedArticles = []
     articles.forEach(article => {
-      let wrapper = $('<div class="card my-3">')
-      const title = `<a href="${article.link}" target="_blank"><h3>${article.title}</h3></a>`
-      const preview = `<p>${article.preview}</p>`
-      const button = `<button class="btn btn-danger" data-save="" data-title="${article.title}" data-link="${article.link}" data-preview="${article.preview}">Save Article</button>`
+      let wrapper = $('<div class="card my-3 border-dark">')
+      const title = `<div class="card-header"><h3><a href="${article.link}" style="color: initial;" target="_blank">${article.title}</a></h3></div>`
+      const preview = `<div class="card-body"><p class="card-text">${article.preview}</p></div>`
+      const button = `
+<div
+  class="card-footer p-1"
+>
+  <a 
+    class="btn btn-danger w-50 mx-auto" 
+    tabindex="0"
+    role="button"
+    data-save="" 
+    data-title="${article.title}" 
+    data-link="${article.link}" 
+    data-preview="${article.preview}"
+    data-trigger="focus"
+    data-toggle="popover" 
+    data-placement="top"
+    title="Article Saved!" 
+  >
+    Save Article
+  </a>
+</div>
+`
       wrapper.append(title, preview, button)
       formattedArticles.push(wrapper)
     })
@@ -42,14 +62,13 @@ $(function () {
 
   const postArticle = async article => {
     $.post('/api/scraper/article/save', article)
-      .then(() => console.log(`article saved`))
       .catch(err => console.error(err))
   }
 
-  $('body').on('click', 'button[data-save]', e => {
+  $('body').on('click', 'a[data-save]', e => {
     const postObject = makePostObject(e)
     postArticle(postObject)
-      .then(() => console.log(`woohoo`))
+      .then(() => $(e.target).popover('show'))
       .catch(err => console.error(err))
   })
 })
