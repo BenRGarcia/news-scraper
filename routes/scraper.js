@@ -1,9 +1,8 @@
-var express = require('express')
-var router = express.Router()
-var scrape = require('./utils/scrape.js')
-var normalize = require('./utils/normalize.js')
-var db = require('./utils/query')
-var scrape = require('./utils/scrape.js')
+const express = require('express')
+const router = express.Router()
+const scrape = require('./utils/scrape.js')
+const normalize = require('./utils/normalize.js')
+const db = require('./utils/query')
 
 /**
  * PATH '/api/scraper'
@@ -43,7 +42,6 @@ router.route('/article/:_id/comments')
   })
   // Add comment to article
   .post((req, res, next) => {
-    console.log(`comment post request received at server`)
     db.addComment({ _id: req.params._id, text: req.body.text })
       .then(() => res.status(201).send())
       .catch(err => next(err))
@@ -52,7 +50,9 @@ router.route('/article/:_id/comments')
 router.route('/article/:id/comment/:commentId')
   // Delete comment from article
   .delete((req, res, next) => {
-    // ...
+    db.deleteComment({ _idComment: req.params.commentId, _idArticle: req.params.id })
+      .then(() => res.status(204).send())
+      .catch(err => next(err))
   })
 
 module.exports = router
