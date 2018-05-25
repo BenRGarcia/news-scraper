@@ -1,7 +1,20 @@
-<h1>Saved Articles</h1>
+{{>
+  jumbotron
+  title='Saved Articles'
+  subtitle='View/delete saved articles, add/delete comments.'
+}}
+{{#unless savedArticles}}
+  <div
+    class="card pb-1 border-dark"
+  >
+    <h2>
+      No articles saved yet
+    </h2>
+  </div>
+{{/unless}}
 {{#each savedArticles}}
   <div
-    class="card my-3 position-relative"
+    class="card my-3 position-relative border-dark"
   >
   <a
     class="position-absolute"
@@ -24,6 +37,7 @@
         <a
           href="{{ link }}"
           style="color: initial;"
+          target='_blank'
         >
           {{ title }}
         </a>
@@ -37,7 +51,9 @@
         {{ preview }}
       </p>
     </div>
-    <div class="card-footer p-1">
+    <div
+      class="card-footer p-1"
+    >
     <button
       class="btn btn-danger w-50 mx-auto"
       data-comments=""
