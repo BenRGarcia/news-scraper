@@ -28,7 +28,7 @@ $(function () {
 
   const renderComments = ({ comments, _id }) => {
     comments.forEach(comment => {
-      let wrapper = $('<div class="position-relative">')
+      let wrapper = $('<div class="position-relative border-top">')
       let text = `<p class="text-left">${comment.text}</p>`
       let deleteButton = `
 <a
@@ -70,7 +70,6 @@ $(function () {
   /**
    * Add note to article
    */
-
   $('body').on('click', '#js-save-new-comment', e => {
     let articleId = $(e.target).data('id')
     let postObj = { text: $('#js-new-comment').val().trim() }
@@ -82,7 +81,6 @@ $(function () {
   /**
    * Delete note for article
    */
-
   const deleteComment = async ({ articleId, commentId }) => {
     return $.ajax({ method: 'DELETE', url: `/api/scraper/article/${articleId}/comment/${commentId}` })
   }
